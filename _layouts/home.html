@@ -1,0 +1,35 @@
+---
+layout: default
+---
+
+<div class="home">
+
+  {{ content }}
+
+  <ul id="repositories-list">
+    <script type="text/javascript">
+
+      // Fetch the repos using the github API
+      function fetchRepos() {
+        return fetch("https://api.github.com/orgs/test-organization-for-pr-creation/repos")
+          .then(response => response.json())
+          .catch(error => console.error(error));
+      }
+
+      // Add each repo to the list
+      const list = document.getElementById("repositories-list");
+
+      fetchRepos().then(repos => repos.forEach(repo => {
+        const listItem = document.createElement("li");
+        const link = document.createElement("a");
+        link.appendChild(document.createTextNode(repo.name));
+        link.href = repo.html_url;
+        listItem.appendChild(link);
+        list.appendChild(listItem);
+      }));
+      
+    </script>
+  </ul>
+
+
+</div>
