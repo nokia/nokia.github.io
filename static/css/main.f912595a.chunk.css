@@ -1,0 +1,2 @@
+:root{--nokia-blue:#124191;--nokia-blue-black:001135;--gray-1:#edf3f5;--gray-2:#bec8d2;--gray-3:#98a2ae}body{font-family:Arial,Helvetica Neue,Helvetica,sans-serif}.navBar{background-color:#edf3f5;background-color:var(--gray-1);margin-bottom:2rem}.navBar a{color:#124191;color:var(--nokia-blue);text-decoration:none}.navBar a:hover,.repoList a{color:1135;color:var(--nokia-blue-black)}.repoList a{text-decoration:none}
+/*# sourceMappingURL=main.f912595a.chunk.css.map */
