@@ -1,0 +1,34 @@
+{
+  "featured": [
+    {
+      "name": "Danm",
+      "url": "https://github.com/nokia/danm",
+      "description": "TelCo grade network management in a Kubernetes cluster.",
+      "logo": "https://raw.githubusercontent.com/nokia/danm/master/logo_w_name.png"
+    },
+    {
+      "name": "Knix",
+      "url": "https://github.com/knix-microfunctions/knix/",
+      "description": "KNIX MicroFunctions is a serverless computing platform that combines container-based resource isolation with a lightweight execution model using processes to significantly improve resource efficiency and decrease the function startup latency. KNIX MicroFunctions works in Knative as well as bare metal or virtual machine-based environments.",
+      "logo": null
+    },
+    {
+      "name": "Moler",
+      "url": "https://github.com/nokia/moler",
+      "description": "Moler – a Python library to help in building automated tests.",
+      "logo": "https://camo.githubusercontent.com/2e97b88e6b2ac61d867b26237035d3de1711a6c5/68747470733a2f2f692e696d6775722e636f6d2f6d6b50757464432e706e67"
+    },
+    {
+      "name": "RED",
+      "url": "https://github.com/nokia/RED",
+      "description": "RED is modern editor based on Eclipse IDE to provide efficient and comfortable work with RobotFramework testware.",
+      "logo": null
+    },
+    {
+      "name": "Kong-oicd",
+      "url": "https://github.com/nokia/kong-oidc",
+      "description": "Kong-oidc is a plugin for Kong implementing the OpenID Connect Relying Party (RP) functionality.",
+      "logo": null
+    }
+  ]
+}
