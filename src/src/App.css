@@ -2,7 +2,7 @@
 
 :root {
   --nokia-blue: #124191;
-  --nokia-blue-black: 001135;
+  --nokia-blue-black: #001135;
   --gray-1: #edf3f5;
   --gray-2: #bec8d2;
   --gray-3: #98a2ae;
@@ -10,20 +10,20 @@
 
 body {
   font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+  padding-top: 50px; /* (for navbar) */
 }
 
 /* Navigation bar */
 
-.navBar {
+.navbar {
   background-color: var(--gray-1);
 }
-
-.navBar a {
+.navbar a {
   color: var(--nokia-blue);
   text-decoration: none;
 }
 
-.navBar a:hover {
+.navbar a:hover {
   color: var(--nokia-blue-black);
 }
 
@@ -41,6 +41,7 @@ body {
 
 .repoList p {
   margin-top: 1rem;
+  color: var(--gray-3);
 }
 
 /* About statement */

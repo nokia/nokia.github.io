@@ -1,1 +1,0 @@
-GET https://api.github.com/orgs/test-organization-for-pr-creation/repos?sort=updated&type=sources&per_page=100&page=1

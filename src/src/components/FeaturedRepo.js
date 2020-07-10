@@ -3,7 +3,7 @@ import { Card } from "react-bootstrap";
 import { trim } from "../utils/utils";
 
 const FeaturedRepo = ({ name, url, description, icon }) => {
-  const trimLength = icon ? 75 : 120; // Length to trim description.
+  const trimLength = icon ? 75 : 150; // Length to trim description.
 
   const cardStyle = {
     minWidth:"18rem",
@@ -23,7 +23,7 @@ const FeaturedRepo = ({ name, url, description, icon }) => {
       <a href={url} className="repoCard">
         <Card style={cardStyle}>
           <Card.Img variant="top" src={icon} style={cardImageStyle} />
-          <Card.Body style={icon ? {} : { marginTop: "7rem" }}>
+          <Card.Body style={icon ? {} : { marginTop: "8rem" }}>
             <Card.Title>{name}</Card.Title>
             <Card.Text>{trim(description, trimLength)}</Card.Text>
           </Card.Body>

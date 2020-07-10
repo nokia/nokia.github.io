@@ -3,11 +3,10 @@ import { Link } from "react-router-dom";
 import { Nav, Navbar } from "react-bootstrap";
 import logo from "../images/logo.png";
 
-
 const NavigationBar = () => {
   return (
-    <div className="navBar">
-      <Navbar collapseOnSelect expand="lg">
+    <div className="container-fluid">
+      <Navbar collapseOnSelect expand="sm" fixed="top">
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
