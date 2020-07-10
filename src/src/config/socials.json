@@ -1,0 +1,29 @@
+{
+  "socials": [
+    {
+      "name": "Github",
+      "url": "https://github.com/nokia",
+      "icon": "fa fa-github"
+    },
+    {
+      "name": "Linkedin",
+      "url": "https://www.linkedin.com/company/nokia",
+      "icon": "fa fa-linkedin"
+    },
+    {
+      "name": "Twitter",
+      "url": "https://twitter.com/nokia",
+      "icon": "fa fa-twitter"
+    },
+    {
+      "name": "Facebook",
+      "url": "https://www.facebook.com/nokia/",
+      "icon": "fa fa-facebook"
+    },
+    {
+      "name": "Instagram",
+      "url": "https://www.instagram.com/nokia/?hl=en",
+      "icon": "fa fa-instagram"
+    }
+  ]
+}

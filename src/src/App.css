@@ -30,7 +30,7 @@ body {
 /* Repo listing */
 
 .repoList {
-  margin-bottom: 3rem;
+  margin-bottom: 5rem;
   margin-top: 2rem;
 }
 
@@ -69,6 +69,7 @@ body {
 .container .featuredRepos {
   margin-top: -4rem;
   color: var(--nokia-blue);
+  margin-bottom: 5rem;
 }
 
 .container .featuredRepos h2 {
@@ -88,4 +89,33 @@ body {
 
 .container .featuredRepos div.card:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Footer */
+
+.footer {
+  background-color: var(--nokia-blue-black);
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.footer img {
+  max-width: 10rem;
+  filter: brightness(0) invert(1);
+  margin-bottom: 1rem;
+}
+
+.footer .socials i {
+  text-decoration: none;
+  color: white;
+}
+
+.footer .socials i:hover {
+  color: var(--gray-3);
+}
+
+.footer .copyright {
+  text-align: right;
+  color: var(--gray-2);
+  font-size: 12px;
 }

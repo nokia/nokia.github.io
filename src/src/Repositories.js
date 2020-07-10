@@ -2,36 +2,39 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { ListGroup } from "react-bootstrap";
 import { trim } from "./utils/utils";
+import { organisations } from "./config/organisations.json";
 
 const Repositories = () => {
   const [repositories, setRepositories] = useState([]);
   const [loading, setLoading] = useState(true);
-  const githubUrl =
-    "https://api.github.com/orgs/nokia/repos?sort=updated&type=sources&per_page=100";
 
   useEffect(() => {
     setLoading(true);
-    let cancel;
-    axios
-      .get(githubUrl, {
-        cancelToken: new axios.CancelToken((c) => (cancel = c)),
-      })
-      .then((response) => {
-        setLoading(false);
-        setRepositories(response.data);
-
-        // If there is a second page, fetch it and concat it to the current
-        if (response.headers.link) {
-          axios
-            .get(githubUrl.concat("&page=2"))
-            .then((res) => setRepositories(response.data.concat(res.data)));
-        }
-      });
-    return () => cancel();
+    fetchOrgRepos().then((repos) => {
+      setRepositories(repos);
+      setLoading(false);
+    });
   }, []);
 
+  // Fetch the repos of each organisation and sort them by "latest update"
+  const fetchOrgRepos = async () => {
+    let repoList = [];
+    for (let org of organisations) {
+      const { data, headers } = await axios.get(org.github_api_url);
+      repoList = repoList.concat(data);
+      // If there is a second page, fetch it
+      if (headers.link) {
+        const { data } = await axios.get(org.github_api_url.concat("&page=2"));
+        repoList = repoList.concat(data);
+      }
+    }
+    return repoList.sort((a, b) => {
+      return new Date(b.updated_at) - new Date(a.updated_at);
+    });
+  };
+
   if (loading) {
-    return <div className="container">Loading...</div>;
+    return <div className="container" style={{ marginBlock: "100%" }}></div>;
   }
 
   return (

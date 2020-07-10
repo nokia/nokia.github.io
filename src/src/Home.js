@@ -27,13 +27,14 @@ const Home = () => {
         <div className="featuredRepos">
           <Container fluid="true">
             <Row>
-              {featured.map((i) => (
-                <Col key={i.name} xl={4} lg={4} md={6} sm={10} xs={12}>
+              {featured.map((repo) => (
+                <Col key={repo.name} xl={4} lg={4} md={6} sm={10} xs={12}>
                   <FeaturedRepo
-                    name={i.name}
-                    url={i.url}
-                    description={trim(i.description, 150)}
-                    icon={i.logo}
+                    name={repo.name}
+                    repo_url={repo.repo_url}
+                    homepage={repo.homepage}
+                    description={trim(repo.description, 150)}
+                    icon={repo.logo}
                   />
                 </Col>
               ))}
