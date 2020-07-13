@@ -24,6 +24,11 @@
       "name": "Instagram",
       "url": "https://www.instagram.com/nokia/?hl=en",
       "icon": "fa fa-instagram"
+    },
+    {
+      "name": "Youtube",
+      "url": "https://www.youtube.com/user/nokia",
+      "icon": "fa fa-youtube-play"
     }
   ]
 }

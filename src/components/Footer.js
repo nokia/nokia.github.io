@@ -7,12 +7,14 @@ const Footer = () => {
   return (
     <div className="footer">
       <div className="container">
-        <img src={logo} alt="" />
+        <div className="nokia-logo">
+          <img src={logo} alt="" />
+        </div>
         <div className="socials">
           <Row>
             {socials.map((s) => {
               return (
-                <Col key={s.name} xl={1} lg={1} md={1} sm={2} xs={4}>
+                <Col key={s.name} xl={1} lg={1} md={1} sm={4} xs={8}>
                   <a href={s.url}>
                     <i className={s.icon}></i>
                   </a>

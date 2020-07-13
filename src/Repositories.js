@@ -34,7 +34,13 @@ const Repositories = () => {
   };
 
   if (loading) {
-    return <div className="container" style={{ marginBlock: "100%" }}></div>;
+    return (
+      <div className="container" style={{ width: "50%", margin: "20rem auto" }}>
+        <div className="spinner-border" role="status">
+          <span className="sr-only">Loading...</span>
+        </div>
+      </div>
+    );
   }
 
   return (

@@ -41,7 +41,7 @@ body {
 
 .repoList p {
   margin-top: 1rem;
-  color: var(--gray-3);
+  color: rgb(110, 110, 110);
 }
 
 /* About statement */
@@ -100,7 +100,8 @@ body {
 }
 
 .footer img {
-  max-width: 10rem;
+  margin-left: -25px;
+  width: 10rem;
   filter: brightness(0) invert(1);
   margin-bottom: 1rem;
 }
