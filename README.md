@@ -1,0 +1,1 @@
+![GitHub Pages deploy](https://github.com/test-organization-for-pr-creation/test-organization-for-pr-creation.github.io/workflows/GitHub%20Pages%20deploy/badge.svg)
