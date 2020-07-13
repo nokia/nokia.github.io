@@ -1,5 +1,6 @@
 {
-  "name": "github-pages-react",
+  "name": "nokia-gh-pages",
+  "homepage": "https://test-organization-for-pr-creation.github.io/test-organization-for-pr-creation/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -14,7 +15,6 @@
     "react-scripts": "3.4.1"
   },
   "scripts": {
-    "deploy": "npm run build --prod && mv build/* .. && rm -rf build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

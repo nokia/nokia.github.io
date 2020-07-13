@@ -10,7 +10,7 @@ const NavigationBar = () => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
-            <Navbar.Brand href="/">
+            <Navbar.Brand href="/test-organization-for-pr-creation">
               <img
                 src={logo}
                 alt=""
@@ -18,10 +18,10 @@ const NavigationBar = () => {
               />
             </Navbar.Brand>
             <Nav.Link href="#" as="span">
-              <Link to="/">Home</Link>
+              <Link to="/test-organization-for-pr-creation">Home</Link>
             </Nav.Link>
             <Nav.Link href="#" as="span">
-              <Link to="/repositories">Repositories</Link>
+              <Link to="/test-organization-for-pr-creation/repositories">Repositories</Link>
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
