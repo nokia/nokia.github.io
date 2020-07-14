@@ -10,28 +10,47 @@ const Repositories = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetchOrgRepos().then((repos) => {
-      setRepositories(repos);
-      setLoading(false);
-    });
-  }, []);
+    const source = axios.CancelToken.source();
+    const cancelToken = { cancelToken: source.token };
 
-  // Fetch the repos of each organisation and sort them by "latest update"
-  const fetchOrgRepos = async () => {
-    let repoList = [];
-    for (let org of organisations) {
-      const { data, headers } = await axios.get(org.github_api_url);
-      repoList = repoList.concat(data);
-      // If there is a second page, fetch it
-      if (headers.link) {
-        const { data } = await axios.get(org.github_api_url.concat("&page=2"));
+    // Fetch the repos of each organisation and sort them by "latest update"
+    const fetchOrgRepos = async () => {
+      let repoList = [];
+      for (let org of organisations) {
+        const { data, headers } = await axios.get(
+          org.github_api_url,
+          cancelToken
+        );
         repoList = repoList.concat(data);
+        // If there is a second page, fetch it
+        if (headers.link) {
+          const { data } = await axios.get(
+            org.github_api_url.concat("&page=2"),
+            cancelToken
+          );
+          repoList = repoList.concat(data);
+        }
       }
-    }
-    return repoList.sort((a, b) => {
-      return new Date(b.updated_at) - new Date(a.updated_at);
-    });
-  };
+      return repoList.sort((a, b) => {
+        return new Date(b.updated_at) - new Date(a.updated_at);
+      });
+    };
+
+    fetchOrgRepos()
+      .then((repos) => {
+        setRepositories(repos);
+        setLoading(false);
+      })
+      .catch((error) => {
+        if (axios.isCancel(error)) {
+          console.log("Cancelled requests.");
+        } else {
+          throw error;
+        }
+      });
+
+    return () => source.cancel();
+  }, []);
 
   if (loading) {
     return (
