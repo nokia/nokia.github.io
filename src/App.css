@@ -72,14 +72,26 @@ body {
   margin-bottom: 5rem;
 }
 
-.container .featuredRepos h2 {
+.featuredRepos h2 {
   margin-bottom: 3rem;
   text-align: center;
 }
 
-.container .featuredRepos a.repoCard {
+.featuredRepos .card-body a {
   text-decoration: none;
   color: var(--nokia-blue);
+}
+
+.featuredRepos .cardText {
+  height: 8rem;
+}
+
+.featuredRepos .cardLinks a {
+  font-size: 22px;
+}
+
+.featuredRepos .cardLinks a:hover {
+  color: black;
 }
 
 .container .featuredRepos div.card {
@@ -88,7 +100,7 @@ body {
 }
 
 .container .featuredRepos div.card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
 /* Footer */
