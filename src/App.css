@@ -44,6 +44,12 @@ body {
   color: rgb(110, 110, 110);
 }
 
+.repoList i[class^="devicon"] {
+  color: #444444;
+  float: right;
+  font-size: x-large;
+}
+
 /* About statement */
 
 .aboutStatement {

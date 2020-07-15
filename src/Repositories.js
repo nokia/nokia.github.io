@@ -4,6 +4,27 @@ import { ListGroup } from "react-bootstrap";
 import { trim } from "./utils/utils";
 import { organisations } from "./config/organisations.json";
 
+// Icons from https://github.com/konpa/devicon
+const languageIcons = {
+  Java: "devicon-java-plain-wordmark",
+  Python: "devicon-python-plain",
+  JavaScript: "devicon-javascript-plain",
+  TypeScript: "devicon-typescript-plain",
+  CoffeeScript: "devicon-coffeescript-original",
+  "C++": "devicon-cplusplus-plain",
+  C: "devicon-c-plain",
+  Go: "devicon-go-plain",
+  Scala: "devicon-scala-plain",
+  "C#": "devicon-csharp-plain",
+  Ruby: "devicon-ruby-plain",
+  Dockerfile: "devicon-docker-plain",
+  Swift: "devicon-swift-plain",
+  Rust: "devicon-rust-plain",
+  PHP: "devicon-php-plain",
+  CSS: "devicon-css3-plain",
+  HTML: "devicon-html5-plain",
+};
+
 const Repositories = () => {
   const [repositories, setRepositories] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -77,6 +98,9 @@ const Repositories = () => {
                 <i className="fa fa-star"></i>
                 {repo.stargazers_count}
               </span>
+              {repo.language in languageIcons && (
+                <i className={languageIcons[repo.language]}></i>
+              )}
               <p>{trim(repo.description, 200)}</p>
             </a>
           </ListGroup.Item>
