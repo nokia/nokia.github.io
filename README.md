@@ -23,4 +23,4 @@ npm start #start development server
 
 ### Deploying
 
-The page is automatically built and deployed on every push to the `actual-master` branch using a Github action.
+The page is automatically built and deployed on every push to the `real-master` branch using a Github action.
