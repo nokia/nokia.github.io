@@ -3,6 +3,7 @@ import axios from "axios";
 import { ListGroup } from "react-bootstrap";
 import { trim } from "./utils/utils";
 import { organisations } from "./config/organisations.json";
+import RepoSearch from "./components/RepoSearch";
 
 // Icons from https://github.com/konpa/devicon
 const languageIcons = {
@@ -28,6 +29,8 @@ const languageIcons = {
 const Repositories = () => {
   const [repositories, setRepositories] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [search, setSearch] = useState("");
+  const [filteredRepos, setFilteredRepos] = useState([]);
 
   useEffect(() => {
     setLoading(true);
@@ -73,11 +76,21 @@ const Repositories = () => {
     return () => source.cancel();
   }, []);
 
+  useEffect(() => {
+    setFilteredRepos(
+      repositories.filter((repo) => {
+        return repo.name.toLowerCase().includes(search.toLowerCase());
+      })
+    );
+  }, [search, repositories]);
+
   if (loading) {
     return (
-      <div className="container" style={{ width: "50%", margin: "20rem auto" }}>
-        <div className="spinner-border" role="status">
-          <span className="sr-only">Loading...</span>
+      <div className="container">
+        <div className="loading">
+          <div className="spinner-border" role="status">
+            <span className="sr-only">Loading...</span>
+          </div>
         </div>
       </div>
     );
@@ -85,26 +98,33 @@ const Repositories = () => {
 
   return (
     <div className="container">
+      <RepoSearch setSearch={setSearch} />
       <ListGroup className="repoList">
-        {repositories.map((repo) => (
-          <ListGroup.Item key={repo.name}>
-            <a href={repo.html_url}>
-              {repo.name}
-              <span style={{ marginLeft: "0.5rem" }}>
-                <i className="fa fa-code-fork"></i>
-                {repo.forks}
-              </span>
-              <span style={{ marginLeft: "0.5rem" }}>
-                <i className="fa fa-star"></i>
-                {repo.stargazers_count}
-              </span>
-              {repo.language in languageIcons && (
-                <i className={languageIcons[repo.language]}></i>
-              )}
-              <p>{trim(repo.description, 200)}</p>
-            </a>
-          </ListGroup.Item>
-        ))}
+        {filteredRepos.length ? (
+          filteredRepos.map((repo) => (
+            <ListGroup.Item key={repo.name}>
+              <a href={repo.html_url}>
+                {repo.name}
+                <span style={{ marginLeft: "0.5rem" }}>
+                  <i className="fa fa-code-fork"></i>
+                  {repo.forks}
+                </span>
+                <span style={{ marginLeft: "0.5rem" }}>
+                  <i className="fa fa-star"></i>
+                  {repo.stargazers_count}
+                </span>
+                {repo.language in languageIcons && (
+                  <i className={languageIcons[repo.language]}></i>
+                )}
+                <p>{trim(repo.description, 200)}</p>
+              </a>
+            </ListGroup.Item>
+          ))
+        ) : (
+          <div className="noResults">
+            <p>No Results Found</p>
+          </div>
+        )}
       </ListGroup>
     </div>
   );
