@@ -30,8 +30,9 @@ body {
 /* Repo listing */
 
 .repoList {
-  margin-bottom: 45%;
   margin-top: 2rem;
+  margin-bottom: 4rem;
+  min-height: 100vh;
 }
 
 .repoList a {
@@ -61,8 +62,8 @@ body {
 
 .loading {
   text-align: center;
-  margin-bottom: 40%;
-  margin-top: 20%;
+  margin-top: 15%;
+  min-height: 100vh;
 }
 
 /* About statement */
