@@ -37,7 +37,9 @@ const Repositories = () => {
     const source = axios.CancelToken.source();
     const cancelToken = { cancelToken: source.token };
 
-    // Fetch the repos of each organisation and sort them by "latest update"
+    // Fetches the repos of each organisation and sorts them by "latest update".
+    // TODO: this is slow for organisations with a lot of repos (>300). Consider using
+    // some sort of pagination system instead.
     const fetchOrgRepos = async () => {
       let repoList = [];
       for (let org of organisations) {
@@ -46,18 +48,25 @@ const Repositories = () => {
           cancelToken
         );
         repoList = repoList.concat(data);
-        // If there is a second page, fetch it
-        if (headers.link) {
-          const { data } = await axios.get(
-            org.github_api_url.concat("&page=2"),
-            cancelToken
-          );
+        // If there are other pages, fetch them
+        let headerLinks = headers.link;
+        while (headerLinks && getNextLink(headerLinks)) {
+          const nextLink = getNextLink(headerLinks)[0];
+          const { data, headers } = await axios.get(nextLink, cancelToken);
           repoList = repoList.concat(data);
+          headerLinks = headers.link;
         }
       }
       return repoList.sort((a, b) => {
         return new Date(b.updated_at) - new Date(a.updated_at);
       });
+    };
+    // Gets the next link from the link header using a regular expression,
+    // see: https://developer.github.com/v3/#link-header for more.
+    const getNextLink = (linkString) => {
+      return linkString.match(
+        /(?![^].+"prev")(?!<)https:\/\/api\.github\.com\/.+(?=>; rel="next")/g
+      );
     };
 
     fetchOrgRepos()
