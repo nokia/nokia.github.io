@@ -1,12 +1,12 @@
 {
-    "organisations": [
-        {
-            "name": "Nokia",
-            "github_api_url": "https://api.github.com/orgs/nokia/repos?type=sources&per_page=100"
-        },
-        {
-            "name": "Knix-Microfunctions",
-            "github_api_url": "https://api.github.com/orgs/knix-microfunctions/repos?type=sources&per_page=100"
-        }
-    ]
+  "organisations": [
+    {
+      "name": "Knix-Microfunctions",
+      "github_api_url": "https://api.github.com/orgs/knix-microfunctions/repos?type=sources&per_page=100&sort=updated"
+    },
+    {
+      "name": "Nokia",
+      "github_api_url": "https://api.github.com/orgs/nokia/repos?type=sources&per_page=100&sort=updated"
+    }
+  ]
 }
