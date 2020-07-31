@@ -4,6 +4,7 @@ import { ListGroup } from "react-bootstrap";
 import { trim } from "./utils/utils";
 import { organisations } from "./config/organisations.json";
 import RepoSearch from "./components/RepoSearch";
+import Error from "./components/Error";
 
 // Icons from https://github.com/konpa/devicon
 const languageIcons = {
@@ -31,9 +32,9 @@ const Repositories = () => {
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
   const [filteredRepos, setFilteredRepos] = useState([]);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
-    setLoading(true);
     const source = axios.CancelToken.source();
     const cancelToken = { cancelToken: source.token };
 
@@ -46,18 +47,16 @@ const Repositories = () => {
           cancelToken
         );
         repoList = repoList.concat(data);
-        setRepositories(repoList);
-        setLoading(false);
         // If there are other pages, fetch them
         let headerLinks = headers.link;
         while (headerLinks && getNextLink(headerLinks)) {
           const nextLink = getNextLink(headerLinks)[0];
           const { data, headers } = await axios.get(nextLink, cancelToken);
           repoList = repoList.concat(data);
-          setRepositories(repoList);
           headerLinks = headers.link;
         }
       }
+      return repoList;
     };
     // Gets the next link from the link header using a regular expression,
     // see: https://developer.github.com/v3/#link-header for more.
@@ -67,13 +66,19 @@ const Repositories = () => {
       );
     };
 
-    fetchOrgRepos().catch((error) => {
-      if (axios.isCancel(error)) {
-        console.log("Cancelled requests.");
-      } else {
-        throw error;
-      }
-    });
+    fetchOrgRepos()
+      .then((repos) => {
+        setRepositories(repos);
+        setLoading(false);
+      })
+      .catch((error) => {
+        if (axios.isCancel(error)) {
+          console.log("Cancelled requests.");
+        } else {
+          setError(true);
+          throw error;
+        }
+      });
 
     return () => source.cancel();
   }, []);
@@ -94,6 +99,14 @@ const Repositories = () => {
             <span className="sr-only">Loading...</span>
           </div>
         </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="errorPage">
+        <Error />
       </div>
     );
   }

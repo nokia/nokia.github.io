@@ -66,6 +66,21 @@ body {
   min-height: 100vh;
 }
 
+.errorPage {
+  color: var(--nokia-blue-black);
+  text-align: center;
+  min-height: 100vh;
+  margin-top: 2rem;
+}
+
+.errorPage h2 {
+  margin-bottom: 1rem;
+}
+
+.errorPage i {
+  font-size: xx-large;
+}
+
 /* About statement */
 
 .aboutStatement {
