@@ -20,6 +20,7 @@ Firstly, clone the repository and navigate into it. To make a development build,
 npm install #install dependencies
 npm start #start development server
 ```
+To make a production build, use: `npm run build`
 
 ### Deploying
 
