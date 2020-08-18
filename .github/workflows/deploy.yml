@@ -22,5 +22,6 @@ jobs:
         with:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           GIT_CONFIG_EMAIL: yann.jorelle@nokia.com
+          CLEAN: true
           BRANCH: master
           FOLDER: build
