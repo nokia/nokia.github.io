@@ -1,6 +1,6 @@
 {
-  "name": "nokia-gh-pages",
-  "homepage": "https://test-organization-for-pr-creation.github.io/",
+  "name": "nokia.github.io",
+  "homepage": "https://nokia.github.io/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

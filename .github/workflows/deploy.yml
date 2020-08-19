@@ -2,7 +2,7 @@ name: GitHub Pages deploy
 on:
   push:
     branches:
-      - real-master
+      - master
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -23,5 +23,5 @@ jobs:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           GIT_CONFIG_EMAIL: yann.jorelle@nokia.com
           CLEAN: true
-          BRANCH: master
+          BRANCH: gh-pages
           FOLDER: build

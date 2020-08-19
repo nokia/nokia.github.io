@@ -1,8 +1,6 @@
-# Github page
+# nokia.github.io
 
-![GitHub Pages deploy](https://github.com/test-organization-for-pr-creation/test-organization-for-pr-creation.github.io/workflows/GitHub%20Pages%20deploy/badge.svg)
-
-A Github page deployed at https://test-organization-for-pr-creation.github.io/
+![GitHub Pages deploy](https://github.com/nokia/nokia.github.io/workflows/GitHub%20Pages%20deploy/badge.svg)
 
 ## Development
 
@@ -24,4 +22,4 @@ To make a production build, use: `npm run build`
 
 ### Deploying
 
-The page is automatically built and deployed on every push to the `real-master` branch using a Github action.
+The page is automatically built and deployed on every push to the `master` branch using a Github action.
