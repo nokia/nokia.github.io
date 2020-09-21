@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Nav, Navbar } from "react-bootstrap";
-import logo from "../images/logo.png";
+import logo from "../images/logo2.png";
 
 const NavigationBar = () => {
   return (
@@ -10,19 +10,20 @@ const NavigationBar = () => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
-            <Navbar.Brand href="/">
-              <img
-                src={logo}
-                alt=""
-                style={{ maxWidth: 80, display: "block", margin: "auto" }}
-              />
-            </Navbar.Brand>
-            <Nav.Link href="#" as="span">
-              <Link to="/">Home</Link>
-            </Nav.Link>
-            <Nav.Link href="#" as="span">
-              <Link to="/repositories">Repositories</Link>
-            </Nav.Link>
+              <Navbar.Brand href="/">
+                <img
+                  src={logo}
+                  alt=""
+                  className="d-inline-block align-middle"
+                  style={{ maxWidth: 80, display: "block", margin: "auto" }}
+                />
+              </Navbar.Brand>
+              <Nav.Link href="#" as="span">
+                <Link to="/">Home</Link>
+              </Nav.Link>
+              <Nav.Link href="#" as="span">
+                <Link to="/repositories">Repositories</Link>
+              </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
