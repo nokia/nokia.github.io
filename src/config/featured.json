@@ -12,7 +12,7 @@
       "repo_url": "https://github.com/knix-microfunctions/knix/",
       "homepage": "https://knix.io/",
       "description": "KNIX MicroFunctions is a serverless computing platform that combines container-based resource isolation with a lightweight execution model using processes to significantly improve resource efficiency and decrease the function startup latency. KNIX MicroFunctions works in Knative as well as bare metal or virtual machine-based environments.",
-      "logo": null
+      "logo": "https://raw.githubusercontent.com/knix-microfunctions/knix/develop/logo/KNIX_logo_stack.jpg"
     },
     {
       "name": "Moler",
