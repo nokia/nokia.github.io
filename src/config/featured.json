@@ -15,6 +15,13 @@
       "logo": "https://raw.githubusercontent.com/knix-microfunctions/knix/develop/logo/KNIX_logo_stack.jpg"
     },
     {
+      "name": "NTT",
+      "repo_url": "https://github.com/nokia/ntt",
+      "homepage": null,
+      "description": "Modern tools for TTCN-3. ntt gives you the tools you need to write tests efficiently.",
+      "logo": null
+    },
+    {
       "name": "Moler",
       "repo_url": "https://github.com/nokia/moler",
       "homepage": null,
