@@ -14,6 +14,7 @@ const NavigationBar = () => {
                 <img
                   src={logo}
                   alt=""
+                  decoding="async"
                   className="d-inline-block align-middle"
                   style={{ maxWidth: 80, display: "block", margin: "auto" }}
                 />
