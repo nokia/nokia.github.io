@@ -8,7 +8,9 @@ const RepoSearch = ({ setSearch }) => {
         type="text"
         placeholder="Search Repositories"
         onChange={(event) => {
-          setSearch(event.target.value);
+          React.startTransition(() => {
+            setSearch(event.target.value);
+          })
         }}
       ></FormControl>
     </div>
