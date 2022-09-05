@@ -2,27 +2,28 @@ import React from "react";
 import { Card } from "react-bootstrap";
 import { trim } from "../utils/utils";
 
+
+const cardStyle = {
+  minWidth: "18rem",
+  minHeight: "18rem",
+  marginBottom: "3rem",
+};
+
+const cardImageDivStyle = {
+  width: "15rem",
+  height: "9rem",
+  display: "block",
+  margin: "0 auto",
+  marginBlock: "1rem",
+};
+
+const cardImageStyle = {
+  maxWidth: "55%",
+  display: "block",
+  margin: "0 auto",
+};
+
 const FeaturedRepo = ({ name, repo_url, homepage, description, icon }) => {
-  const cardStyle = {
-    minWidth: "18rem",
-    minHeight: "18rem",
-    marginBottom: "3rem",
-  };
-
-  const cardImageDivStyle = {
-    width: "15rem",
-    height: "9rem",
-    display: "block",
-    margin: "0 auto",
-    marginBlock: "1rem",
-  };
-
-  const cardImageStyle = {
-    maxWidth: "55%",
-    display: "block",
-    margin: "0 auto",
-  };
-
   return (
     <>
       <div className="repoCard">
